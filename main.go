@@ -53,6 +53,7 @@ func equalizeHistogram(img image.Image, format string) {
 		log.Println(err)
 		return
 	}
+	defer file.Close()
 
 	switch format {
 	case "png":
@@ -67,6 +68,8 @@ func equalizeHistogram(img image.Image, format string) {
 			log.Println(err)
 			return
 		}
+	default:
+		log.Println("Unsupported format")
 	}
 }
 
